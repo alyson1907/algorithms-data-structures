@@ -19,7 +19,7 @@ class Maze {
         const cell = this.maze[i][j]
         const x = i * this.cellsSize
         const y = j * this.cellsSize
-        stroke(255)
+        stroke(220)
         cell.walls.top && line(x, y, x + w, y)
         cell.walls.right && line(x + w, y, x + w, y + w)
         cell.walls.bottom && line(x, y + w, x + w, y + w)

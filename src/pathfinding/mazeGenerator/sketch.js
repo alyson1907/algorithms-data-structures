@@ -7,7 +7,7 @@ console.log(maze)
 /* eslint-disable-next-line */
 function setup() {
   createCanvas(canvasDimensions, canvasDimensions)
-  background(80)
+  background(100)
   frameRate(4)
 }
 
