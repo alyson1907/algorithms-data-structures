@@ -3,27 +3,27 @@ class Maze {
     this.width = width
     this.canvasDimensions = canvasDimensions
     this.cellsSize = canvasDimensions / width
-    this.maze = []
+    this.grid = []
     for (let i = 0; i < width; i++) {
-      this.maze.push([])
+      this.grid.push([])
       for (let j = 0; j < width; j++) {
-        this.maze[i].push(new Cell())
+        this.grid[i].push(new Cell(i, j))
       }
     }
   }
 
   show() {
-    const w = this.width
-    for (let i = 0; i < w; i++) {
-      for (let j = 0; j < w; j++) {
-        const cell = this.maze[i][j]
+    const size = this.cellsSize
+    for (let i = 0; i < this.width; i++) {
+      for (let j = 0; j < this.width; j++) {
+        const cell = this.grid[i][j]
         const x = i * this.cellsSize
         const y = j * this.cellsSize
         stroke(220)
-        cell.walls.top && line(x, y, x + w, y)
-        cell.walls.right && line(x + w, y, x + w, y + w)
-        cell.walls.bottom && line(x, y + w, x + w, y + w)
-        cell.walls.left && line(x, y, x, y + w)
+        cell.walls.top && line(x, y, x + size, y)
+        cell.walls.right && line(x + size, y, x + size, y + size)
+        cell.walls.bottom && line(x, y + size, x + size, y + size)
+        cell.walls.left && line(x, y, x, y + size)
       }
     }
   }
