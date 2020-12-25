@@ -1,0 +1,28 @@
+{
+  "name": "algorithms-data-structures",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sketch.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "start": "browser-sync start --server --watch --port=3000 --startPath=$DIR",
+    "lint": "eslint ./src/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alyson1907/algorithms-data-structures.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alyson1907/algorithms-data-structures/issues"
+  },
+  "homepage": "https://github.com/alyson1907/algorithms-data-structures#readme",
+  "dependencies": {
+    "browser-sync": "^2.26.13",
+    "eslint": "^7.16.0"
+  }
+}
