@@ -13,7 +13,7 @@ module.exports = {
   },
  "extends": ["eslint:recommended"],
  "rules": {
-    "no-unused-vars": 2,
+    "no-unused-vars": 0,
     "no-undef": 0,
     "indent": [2, 2],
     "linebreak-style": [2, "unix"],
