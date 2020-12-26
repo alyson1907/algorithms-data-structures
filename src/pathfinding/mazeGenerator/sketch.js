@@ -1,20 +1,22 @@
 // Parameters
-const canvasDimensions = 600
-const width = 50
+const canvasDimensions = 800
+const width = 20
 function findUnvisitedNeighbour(x, y) {
   // prettier-ignore
-  // Order: Top, Right, Bottom, Left
   const neighbours = [
     { x       , y: y - 1  },
     { x: x + 1, y         },
     { x       , y: y + 1  },
     { x: x - 1, y         },
   ]
-  const coords = neighbours.find((n) => {
-    const cell = maze.grid[n.x] && maze.grid[n.x][n.y]
-    return cell && cell.visited === false
-  })
-  return coords && maze.grid[coords.x][coords.y]
+
+  while (neighbours.length > 0) {
+    const idx = parseInt(Math.random() * neighbours.length)
+    const n = neighbours[idx]
+    neighbours.splice(idx, 1)
+    const neighbour = maze.grid[n.x] && maze.grid[n.x][n.y]
+    if (neighbour && neighbour.visited === false) return neighbour
+  }
 }
 
 function removeWall(cell1, cell2) {
@@ -53,16 +55,15 @@ function setup() {
   initCell.visited = true
   stack.push(initCell)
   createCanvas(canvasDimensions, canvasDimensions)
-  background(90)
-  frameRate(15)
+  // frameRate(15)
 }
 
 /* eslint-disable-next-line */
 function draw() {
   clear()
   if (stack.length > 0) {
-    // console.log(stack)
     const cell = stack.pop()
+    maze.show(cell, stack)
     const firstNeighbour = findUnvisitedNeighbour(cell.x, cell.y)
     if (firstNeighbour) {
       stack.push(cell)
@@ -71,7 +72,7 @@ function draw() {
       stack.push(firstNeighbour)
     }
   } else {
-    console.log('Finished', JSON.stringify(maze.grid))
+    console.log(JSON.stringify(maze.grid))
     noLoop()
   }
   maze.show()
