@@ -7,15 +7,16 @@ let mazeSolver
 
 /* eslint-disable-next-line */
 function setup() {
-  maze = new Maze(input1, canvasDimensions, start, end)
+  maze = new Maze(inputs[0], canvasDimensions, start, end)
   mazeSolver = new MazeSolver(maze, start, end)
   createCanvas(canvasDimensions, canvasDimensions)
-  // frameRate(30)
+  // frameRate(6)
 }
 
 /* eslint-disable-next-line */
 function draw() {
   clear()
-  maze = mazeSolver.nextIteration()
-  maze.show()
+  const { maze: nextMazeState, stack } = mazeSolver.nextIteration()
+  maze = nextMazeState
+  maze.show(stack)
 }

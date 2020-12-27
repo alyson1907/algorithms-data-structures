@@ -19,12 +19,14 @@ class Maze {
    * @param {*} currProcessing current cell being processed in this iteration
    * @param {*} stack current stack state
    */
-  show() {
+  show(stack) {
     const size = this.cellsSize
     const colors = {
       walls: [255, 255, 255],
-      start: [204, 68, 204],
-      end: [180, 80, 0],
+      current: [160, 68, 160],
+      start: [255, 68, 60],
+      end: [0, 255, 0],
+      inProgress: [130, 130, 200],
     }
 
     for (let i = 0; i < this.width; i++) {
@@ -35,6 +37,8 @@ class Maze {
 
         if (cell.isStart) fill(...colors.start)
         else if (cell.isEnd) fill(...colors.end)
+        else if (cell.isCurrent) fill(...colors.current)
+        else if (stack.includes(cell)) fill(...colors.inProgress)
         else noFill() // not visited
 
         noStroke()
