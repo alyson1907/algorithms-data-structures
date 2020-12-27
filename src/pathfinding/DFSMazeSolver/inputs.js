@@ -1,4 +1,4 @@
-const inputs = [
+const inputsList = [
   [
     [
       { x: 0, y: 0, visited: true, walls: { top: true, right: true, bottom: false, left: true } },

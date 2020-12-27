@@ -2,12 +2,13 @@
 const canvasDimensions = 800
 const start = { x: 1, y: 7 }
 const end = { x: 14, y: 14 }
+const input = inputsList[1]
+
 let maze
 let mazeSolver
-
 /* eslint-disable-next-line */
 function setup() {
-  maze = new Maze(inputs[1], canvasDimensions, start, end)
+  maze = new Maze(input, canvasDimensions, start, end)
   mazeSolver = new MazeSolver(maze, start, end)
   createCanvas(canvasDimensions, canvasDimensions)
   // frameRate(6)
