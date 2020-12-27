@@ -1,6 +1,6 @@
 // Parameters
 const canvasDimensions = 800
-const width = 20
+const width = 30
 function findUnvisitedNeighbour(x, y) {
   // prettier-ignore
   const neighbours = [
@@ -51,11 +51,13 @@ const stack = []
 let maze
 function setup() {
   maze = new Maze(width, canvasDimensions)
-  const initCell = maze.grid[0][0]
+  const iniX = parseInt(Math.random() * width)
+  const iniY = parseInt(Math.random() * width)
+  const initCell = maze.grid[iniX][iniY]
   initCell.visited = true
   stack.push(initCell)
   createCanvas(canvasDimensions, canvasDimensions)
-  // frameRate(15)
+  // frameRate(30)
 }
 
 /* eslint-disable-next-line */
