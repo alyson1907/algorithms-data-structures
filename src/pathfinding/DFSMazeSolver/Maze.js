@@ -1,9 +1,15 @@
 class Maze {
-  constructor(input, canvasDimensions) {
+  constructor(input, canvasDimensions, start, end) {
     this.width = input.length
     this.canvasDimensions = canvasDimensions
     this.cellsSize = canvasDimensions / this.width
-    this.grid = input.map((row) => row.map((cell) => new Cell(cell)))
+    this.grid = input.map((row) => row.map((cell) => {
+      const c = new Cell(cell)
+      if (c.equalsCellPos(start.x, start.y)) c.isStart = true
+      if (c.equalsCellPos(end.x, end.y)) c.isEnd = true
+      return c
+    })
+    )
   }
 
   /** There are 3 possible states for a Cell:
@@ -13,7 +19,7 @@ class Maze {
    * @param {*} currProcessing current cell being processed in this iteration
    * @param {*} stack current stack state
    */
-  show(start, end) {
+  show() {
     const size = this.cellsSize
     const colors = {
       walls: [255, 255, 255],
@@ -27,8 +33,8 @@ class Maze {
         const x = i * this.cellsSize
         const y = j * this.cellsSize
 
-        if (cell.equalsCellPos(start.x, start.y)) fill(...colors.start)
-        else if (cell.equalsCellPos(end.x, end.y)) fill(...colors.end)
+        if (cell.isStart) fill(...colors.start)
+        else if (cell.isEnd) fill(...colors.end)
         else noFill() // not visited
 
         noStroke()
