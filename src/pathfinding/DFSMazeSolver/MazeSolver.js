@@ -37,7 +37,7 @@ class MazeSolver {
   nextIteration() {
     if (this.stack.length === 0 || this.curr.isEnd) {
       noLoop()
-      console.log(this.stack)
+      console.log('Solution: \n', JSON.stringify(this.stack))
       return {
         maze: this.maze,
         stack: this.stack,

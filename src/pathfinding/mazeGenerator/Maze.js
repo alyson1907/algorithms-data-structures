@@ -22,7 +22,7 @@ class Maze {
   show(currProcessing, stack = []) {
     const colors = {
       walls: [255, 255, 255],
-      processing: [204, 68, 204],
+      current: [255, 68, 140],
       inProgress: [130, 130, 200],
       finished: [180, 80, 0],
     }
@@ -37,7 +37,7 @@ class Maze {
         // Handling cell states
         if (currProcessing === cell)
           // current being processed
-          fill(...colors.processing)
+          fill(...colors.current)
         else if (stack.includes(cell))
           // not finished
           fill(...colors.inProgress)

@@ -1,6 +1,6 @@
 // Parameters
 const canvasDimensions = 800
-const width = 15
+const width = 30
 function findUnvisitedNeighbour(x, y) {
   // prettier-ignore
   const neighbours = [
