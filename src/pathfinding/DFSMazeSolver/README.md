@@ -1,4 +1,4 @@
-**Maze solver using DFS**
+# Maze solver using DFS
 
 ![](./demo.gif)
 
