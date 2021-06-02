@@ -18,12 +18,19 @@ class ArrayHelper {
   }
 
   static show(array, width, height) {
+    function colorByState(stateValue, defaultColor) {
+      switch(stateValue) {
+        case "PIVOT": return 310
+        case "PROCESSING": return 50
+        case "FINISHED": return defaultColor
+      }
+    }
     const Wincr = width / array.length
     const Hincr = height / Math.max(...array)
     colorMode(HSL)
     strokeWeight(Wincr)
     for (let i = 0; i < array.length; i++) {
-      stroke(array[i], 100, 50)
+      stroke(colorByState(state[i], array[i]), 100, 50)
       line(i * Wincr, height, i * Wincr, height - (array[i] * Hincr))
     }
 
