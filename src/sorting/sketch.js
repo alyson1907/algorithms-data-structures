@@ -5,8 +5,8 @@
  */
 const state = []
 
-const width = 1000
-const height = 800
+const width = 1100
+const height = 600
 let shuffled
 
 /* eslint-disable-next-line */
