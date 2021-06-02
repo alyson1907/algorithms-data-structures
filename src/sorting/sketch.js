@@ -4,16 +4,21 @@
  * FINISHED -> finished
  */
 const state = []
-
-const width = 1100
-const height = 600
 let shuffled
+
+// Configs
+const config = {
+  width: 1100,
+  height: 600,
+  elements: 360,
+  showPartitions: false,
+}
 
 /* eslint-disable-next-line */
 function setup() {
-  createCanvas(width, height)
+  createCanvas(config.width, config.height)
   background(155)
-  const array = ArrayHelper.create(360)
+  const array = ArrayHelper.create(config.elements)
   shuffled = ArrayHelper.shuffle(array)
   frameRate(60)
   quickSort(shuffled, 0, shuffled.length - 1)
@@ -22,5 +27,5 @@ function setup() {
 /* eslint-disable-next-line */
 function draw() {
   clear()
-  ArrayHelper.show(shuffled, width, height)
+  ArrayHelper.show(shuffled, config.width, config.height)
 }

@@ -1,5 +1,5 @@
 async function sleep(ms) {
-  await new Promise(res => setTimeout(res, ms))
+  await new Promise((res) => setTimeout(res, ms))
 }
 
 async function swap(array, i, j) {
@@ -11,22 +11,22 @@ async function swap(array, i, j) {
 
 async function partition(arr, start, end) {
   for (let i = start; i < end; i++) {
-    state[i] = "PROCESSING"
+    state[i] = 'PROCESSING'
   }
   const pivotValue = arr[end]
   let pivotIndex = start
   for (let i = start; i < end; i++) {
-    state[pivotIndex] = "PIVOT"
+    state[pivotIndex] = 'PIVOT'
     if (arr[i] < pivotValue) {
       await swap(arr, i, pivotIndex)
-      state[pivotIndex] = "FINISHED"
+      state[pivotIndex] = 'FINISHED'
       pivotIndex++
     }
   }
   await swap(arr, pivotIndex, end)
 
   for (let i = start; i < end; i++) {
-    state[i] = "FINISHED"
+    state[i] = 'FINISHED'
   }
   return pivotIndex
 }
