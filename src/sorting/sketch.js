@@ -13,7 +13,7 @@ let shuffled
 function setup() {
   createCanvas(width, height)
   background(155)
-  const array = ArrayHelper.create(100)
+  const array = ArrayHelper.create(360)
   shuffled = ArrayHelper.shuffle(array)
   frameRate(60)
   quickSort(shuffled, 0, shuffled.length - 1)

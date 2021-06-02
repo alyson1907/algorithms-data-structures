@@ -20,8 +20,8 @@ class ArrayHelper {
   static show(array, width, height) {
     function colorByState(stateValue, defaultColor) {
       switch(stateValue) {
-        case "PIVOT": return 310
-        case "PROCESSING": return 50
+        case "PIVOT": return 360
+        case "PROCESSING": return 150
         case "FINISHED": return defaultColor
       }
     }
