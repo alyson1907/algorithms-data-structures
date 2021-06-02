@@ -1,3 +1,9 @@
+/**
+ * PIVOT -> element is a pivot
+ * PROCESSING -> element is currently being processed
+ * FINISHED -> finished
+ */
+const state = []
 
 const width = 1000
 const height = 800
@@ -7,13 +13,14 @@ let shuffled
 function setup() {
   createCanvas(width, height)
   background(155)
-  const array = ArrayHelper.create(360)
+  const array = ArrayHelper.create(100)
   shuffled = ArrayHelper.shuffle(array)
-  frameRate(2)
-  
+  frameRate(60)
+  quickSort(shuffled, 0, shuffled.length - 1)
 }
 
 /* eslint-disable-next-line */
 function draw() {
-  ArrayHelper.show(ArrayHelper.create(360), width, height)
+  clear()
+  ArrayHelper.show(shuffled, width, height)
 }
